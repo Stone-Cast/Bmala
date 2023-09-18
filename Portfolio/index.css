@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+html, body {
+	background: green;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+/*-------header begins-----------*/
+
+/*------------settings of navbar at the top------------------*/
+header{
+	position: fixed;
+	top: -65px;
+	left: 0;
+	width: 100%;
+	padding: 2vh 5vw;
+	background: rgba(0, 0, 0, 0.1);
+	backdrop-filter:blur(5px);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 100;
+	transition: all 0.75s;
+	border-radius: 0 0 15px 15px;
+	box-shadow: 0px 4px 15px -10px,
+				0px 0px 5px 1px inset;
+}
+/*------------settings of words in buttons in navbar------------------*/
+nav a{
+	font-size: 15px;
+	text-decoration: none;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.8);
+	padding: 0 2.5vw;
+	transition: all 0.5s;
+}
+/*------------settings of buttons navbar------------------*/
+nav button{
+	--color: rgba(255, 238, 238, 0.5);
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	border: none;
+	padding: 2vh 0;
+	border-radius: 15px;
+	background-color: transparent;
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+}
+nav button::after{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	background: var(--color);
+	inset: 0;
+	transition: scale 350ms;
+	scale: 0 1;
+	transform-origin: right;
+	border-radius: 15px;
+}
+nav button:hover::after
+nav button:focus-visible::after{
+	scale: 1 1;
+	transform-origin: left;
+}
+nav a.active::after{
+	content: '';
+	height: 3px;
+	position: absolute;
+	z-index: -1;
+	background: var(--color);
+	inset: 0;
+	transition: scale 350ms;
+	scale: 0 1;
+	transform-origin: right;
+	border-radius: 15px;
+}
+/*--------header navbar finished------------*/
+
+/*------------main begins--------------*/
+/*--------settings applied to all sections-------*/
+main section{
+	display: flex;
+	height: 100vh;
+	
+}
+/*.container{
+	scroll-snap-type: y proximity;
+	overflow-y: hidden;
+	height: 100vh;
+}*/
+#wrapper{
+/*	position: relative;*/
+	background: black;
+	z-index: 1;
+	
+	/*align-items: center;
+	justify-content: center;*/
+}
+#wrapper::before{
+	position: absolute;
+	content: '';
+	display: block;
+ 	width: 100%;
+  	height: 100%;
+/*	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.5) 30% , rgba(, 0, 0, 1.0) 90%);*/
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 40% , rgba(0 0, 0, 1.0));
+  	z-index: 30;
+}
+#wrapper h2{
+	position: fixed;
+	color: white;
+	font-size: 45px;
+	top: 35%;
+	left: 10%;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 42px #0fa, 0 0 82px #0fa,0 0 92px #0fa;
+	
+}
+
+#home, #about, #services, #contacts {
+	position: relative;
+}
+/*------settings spicific to home section-------*/
+#home{
+/*	scroll-snap-align: start;?*/
+	z-index: 2;
+	background-color: black;
+/*	justify-content: center;
+	align-items: center;*/
+	background-image: url("lake.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+
+	overflow: hidden;
+/*	box-shadow: inset 0 10px 60px 80px black;*/
+	
+}
+#home::before{
+	content: '';
+	position: absolute;
+	display: block;
+ 	width: 100%;
+  	height: 100%;
+/*	background: linear-gradient(to top, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.5) 50% , rgba(, 0, 0, 1.0) 90%);*/
+background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 40% , rgba(0 0, 0, 1.0));
+  	z-index: 3;
+  	
+}
+/*-------------light black colored screen overlay for home----------*/
+/*#home::before{
+	content: '';
+	display: block;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+ 	width: 100%;
+  	height: 100%;
+	background-color: linear-gradient(to bottom, rgba(255, 0, 0, 0.0), rgba(255, 0, 0, 1.0);
+	background: red;
+  	z-index: 1;
+}*/
+/*--------settings for <h2> inside home---------*/
+#home h2{
+	position: absolute;
+	text-transform: uppercase;
+	font-family: 'Quicksand', sans-serif;
+	color: white;
+	z-index: 4;
+	width: 100%;
+	text-align: center;
+	transition: all 1s;
+}
+#home #heading1{
+	font-size: 35px;
+	top: 65vh;
+	letter-spacing: 8px;
+}
+#home #heading2{
+
+	font-size: 38px;
+	letter-spacing: 3px;
+	top: 380vh;
+}
+
+/*-----------Canvas---------------*/
+canvas{
+/*	background: black;*/
+	box-shadow: 0 0 5px 10px black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+}
+input{
+	position: fixed;
+	top: -10;
+	display: none;
+	width: calc(100% - 20px);
+	padding: 10px;
+	margin: 10px;
+	z-index: 100;
+	z-index: -1;
+}
+
+/*-------------Home finished-----------------*/
+
+
+#about{
+	z-index: 2;
+	background-color: #0c192c;
+	position: relative;
+
+}
+
+#services{
+	z-index: 3;
+
+}
+#contacts{
+	z-index: 4;
+/*	position: sticky;
+	top: 0;*/
+}
+
+.custom-shape-divider-bottom-1694753066 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin-bottom: -1px;
+    z-index: 4;
+}
+
+.custom-shape-divider-bottom-1694753066 svg {
+    position: relative;
+    display: block;
+    width: calc(179% + 1.3px);
+    height: 221px;
+}
+
+.custom-shape-divider-bottom-1694753066 .shape-fill {
+    fill: #0c192c;
+}
+
+/** For tablet devices **/
+@media (min-width: 750px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1694753066 svg {
+        width: calc(167% + 1.3px);
+        height: 140px;
+    }
+    #wrapper h2{
+    	top: 33%;
+    	left: 15%;
+    	font-size: 32px;
+    }
+    #home #heading1{
+    	font-size: 22px;
+    }
+    #home #heading2{
+    	font-size: 20px;
+    }
+/*    #home{
+    	box-shadow: 0 -100px 80px 10px black;
+    }*/
+}
+
+/** For mobile devices **/
+@media (max-width: 749px) {
+    .custom-shape-divider-bottom-1694753066 svg {
+        width: calc(175% + 1.3px);
+        height: 84px;
+    }
+    #wrapper h2{
+    	top: 32vh;
+    	font-size: 20px;
+    	box-shadow: 0 -140px 100px 50px black;
+    }
+    #home #heading1{
+    	font-size: 20px;
+    }
+    #home #heading2{
+    	font-size: 18px;
+    }
+}
+
+::-webkit-scrollbar-track{
+	background: yellow;
+}
